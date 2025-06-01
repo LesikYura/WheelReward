@@ -97,7 +97,7 @@ namespace Views
             var relativeTargetAngle = targetAngle - currentZRotation;
             var finalRotation = currentZRotation + relativeTargetAngle + (config.FullRotations * 360f);
 
-            wheelContainer.DORotate(new Vector3(0, 0, finalRotation), 3f, RotateMode.FastBeyond360) // 3 секунди тривалість
+            wheelContainer.DORotate(new Vector3(0, 0, finalRotation), config.Duration, RotateMode.FastBeyond360) // 3 секунди тривалість
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() => 
                 {

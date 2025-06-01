@@ -9,6 +9,7 @@ namespace Models
         public List<WheelRewardItem> Rewards;
         
         [Header("Animation")]
+        public float Duration = 5; 
         public float WheelRadius = 300; 
         public int FullRotations = 5; 
     }

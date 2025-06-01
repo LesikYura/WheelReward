@@ -73,7 +73,6 @@ namespace ViewModels
         
         private int CalculateTargetAngle(int targetIndex)
         {
-      
             var anglePerItem = 360f / Items.Count;
             var compensationAngle = -15f; // pointer sprite spec
             var targetAngle = (targetIndex * anglePerItem) + (anglePerItem / 2f) + compensationAngle; // centartion

@@ -15,17 +15,23 @@ namespace Tests
             var config = ScriptableObject.CreateInstance<WheelConfig>();
             config.Rewards = new List<WheelRewardItem>
             {
-                new WheelRewardItem { Id = "Gold", Amount = 100, Weight = 1f }
+                new WheelRewardItem { Id = "coins_100", Amount = 100, Weight = 1f },
             };
 
+            config.FullRotations = 1;
+            config.Duration = 1;
+            config.WheelRadius = 300;
+
             var vm = new WheelViewModel(config);
-            WheelRewardItem result = null;
-            vm.OnSpinCompleted += r => result = r;
+            vm.OnSpinCompleted += CheckResult;
 
             vm.Spin();
+        }
 
+        private void CheckResult(WheelRewardItem result)
+        {
             Assert.IsNotNull(result);
-            Assert.AreEqual("Gold", result.Id);
+            Assert.AreEqual("coins_100", result.Id);
         }
     }
 }
